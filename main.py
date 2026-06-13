@@ -331,7 +331,78 @@ def apply_theme(mbti):
     st.markdown(
         f"""
 <style>
+.flip-card{
+background:transparent;
+width:320px;
+height:450px;
+margin:auto;
+perspective:1000px;
+}
 
+.flip-card-inner{
+position:relative;
+width:100%;
+height:100%;
+text-align:center;
+transition:transform .8s;
+transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner{
+transform:rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+backface-visibility:hidden;
+
+border-radius:25px;
+
+overflow:hidden;
+
+border:2px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 0 30px rgba(255,255,255,.15),
+0 0 80px rgba(255,255,255,.1);
+
+}
+
+.flip-card-front{
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.15),
+rgba(255,255,255,.05)
+);
+
+}
+
+.flip-card-back{
+
+background:
+linear-gradient(
+135deg,
+rgba(0,0,0,.65),
+rgba(30,41,59,.9)
+);
+
+transform:rotateY(180deg);
+
+padding:20px;
+
+box-sizing:border-box;
+
+}
 .stApp {{
 {bg}
 background-size:400% 400%;
